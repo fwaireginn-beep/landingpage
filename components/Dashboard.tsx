@@ -65,9 +65,18 @@ const Dashboard: React.FC<DashboardProps> = ({ onBack }) => {
       </div>
 
       <footer className="max-w-7xl mx-auto mt-24 text-center">
+        <div className="mb-12">
+          <button
+            onClick={onBack}
+            className="inline-flex items-center px-8 py-3 rounded-full border border-white/10 text-white/40 hover:text-white hover:border-white/30 hover:bg-white/5 transition-all duration-300 text-sm font-medium tracking-wide uppercase"
+          >
+            <LucideIcons.ArrowLeft className="w-4 h-4 mr-2" />
+            Back to Welcome Screen
+          </button>
+        </div>
         <div className="w-px h-12 bg-gradient-to-b from-transparent to-white/10 mx-auto mb-8"></div>
         <p className="text-white/20 text-xs tracking-widest uppercase">
-          More services coming soon
+          © 2025 Taifa Hub Digital • All services secured
         </p>
       </footer>
     </div>
