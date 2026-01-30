@@ -28,14 +28,14 @@ const Dashboard: React.FC<DashboardProps> = ({ onBack }) => {
         </div>
       </nav>
 
-      <header className="max-w-7xl mx-auto mb-12">
-        <h2 className="text-3xl font-light text-white mb-2">Digital Ecosystem</h2>
-        <p className="text-white/40 max-w-2xl">
-          Select a specialized portal below to access government services, business tools, or educational resources.
+      <header className="max-w-4xl mx-auto mb-16 text-center">
+        <h2 className="text-4xl font-extralight text-white mb-4">Digital Services Portal</h2>
+        <p className="text-white/40 text-lg font-light">
+          Welcome to the heart of the platform. Select a service below to continue.
         </p>
       </header>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
         {SUBDOMAINS.map((sub) => {
           // Dynamic Icon selection
           const IconComponent = (LucideIcons as any)[sub.icon] || LucideIcons.Globe;
@@ -43,39 +43,33 @@ const Dashboard: React.FC<DashboardProps> = ({ onBack }) => {
           return (
             <a
               key={sub.id}
-              href="#"
-              className="glass p-8 rounded-2xl group transition-all duration-300 hover:border-cyan-500/30 hover:bg-white/5"
+              href={sub.url}
+              className="glass p-10 rounded-3xl group transition-all duration-500 hover:border-cyan-500/50 hover:bg-white/5 flex flex-col items-center text-center"
             >
-              <div className="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center mb-6 group-hover:bg-cyan-500/20 transition-colors">
-                <IconComponent className="w-6 h-6 text-cyan-400" />
+              <div className="w-20 h-20 rounded-2xl bg-cyan-500/10 flex items-center justify-center mb-8 group-hover:bg-cyan-500/20 group-hover:scale-110 transition-all duration-500">
+                <IconComponent className="w-10 h-10 text-cyan-400" />
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3 flex items-center">
+              <h3 className="text-2xl font-semibold text-white mb-4 flex items-center justify-center">
                 {sub.name}
-                <LucideIcons.ChevronRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-cyan-500" />
+                <LucideIcons.ArrowUpRight className="w-5 h-5 ml-2 opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all text-cyan-500" />
               </h3>
-              <p className="text-white/40 text-sm leading-relaxed mb-6">
+              <p className="text-white/50 text-base leading-relaxed mb-8 font-light">
                 {sub.description}
               </p>
-              <div className="text-xs font-mono text-cyan-500/60 group-hover:text-cyan-400 transition-colors">
-                {sub.url}
+              <div className="mt-auto inline-flex items-center px-6 py-2 rounded-full border border-white/5 bg-white/5 text-xs font-mono text-cyan-500/80 group-hover:bg-cyan-500 group-hover:text-white transition-all duration-300">
+                Launch Application
               </div>
             </a>
           );
         })}
       </div>
 
-      <div className="max-w-7xl mx-auto mt-20 p-12 glass rounded-[2rem] flex flex-col md:flex-row items-center justify-between overflow-hidden relative">
-        <div className="z-10">
-          <h3 className="text-2xl font-light text-white mb-4">Central Integration Hub</h3>
-          <p className="text-white/40 max-w-md text-sm mb-6">
-            We are continuously expanding the Taifa Digital Network. Securely link your biometric ID to access all sub-platforms instantly.
-          </p>
-          <button className="px-6 py-2 border border-white/10 rounded-full text-sm font-medium hover:bg-white hover:text-black transition-all">
-            Link Identity
-          </button>
-        </div>
-        <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-[80px] -mr-32 -mt-32"></div>
-      </div>
+      <footer className="max-w-7xl mx-auto mt-24 text-center">
+        <div className="w-px h-12 bg-gradient-to-b from-transparent to-white/10 mx-auto mb-8"></div>
+        <p className="text-white/20 text-xs tracking-widest uppercase">
+          More services coming soon
+        </p>
+      </footer>
     </div>
   );
 };
